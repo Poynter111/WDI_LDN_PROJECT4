@@ -3,6 +3,7 @@ mongoose.Promise = require('bluebird');
 
 const { dbURI } = require('../config/environment');
 const Team = require('../models/team');
+// const User = require('../models/user');
 
 mongoose.connect(dbURI, (err, db) => {
   db.dropDatabase();
@@ -40,9 +41,16 @@ mongoose.connect(dbURI, (err, db) => {
       info: 'We will be doing lids only no need to bring pads'
     }],
     coach: 'Alex Poynter'
-  }
+  }])
 
-  ])
+  // User.create([{
+  //   username: 'User1C',
+  //   email: 'u1c@u1c',
+  //   password: 'u1',
+  //   passwordConfirmation: 'u1',
+  //   role: 'coach'
+  // }])
+
     .then(teams => console.log(`${teams.length} teams created`))
     .catch(err => console.log(err))
     .finally(() => mongoose.connection.close());

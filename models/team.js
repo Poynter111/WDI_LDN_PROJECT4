@@ -11,8 +11,8 @@ const gameDaySchema = new mongoose.Schema({
   },
   kickOff: { type: String },
   playerArrival: { type: String },
-  info: { type: String },
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
+  info: { type: String }
+  // createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 });
 
 //Model for Practice resource---------------------------------------------------
