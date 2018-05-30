@@ -13,6 +13,8 @@ import GamesIndex from './components/games/Index';
 import GamesShow from './components/games/Show';
 import GamesNew from './components/games/New';
 import GamesEdit from './components/games/Edit';
+import PracticeIndex from './components/practices/Index';
+import PracticeShow from './components/practices/Show';
 
 import 'bulma';
 import './assets/scss/style.scss';
@@ -32,6 +34,8 @@ class App extends React.Component {
                 <Route path="/teams/:id/games/:gameId/edit" component={GamesEdit} />
                 <Route path="/teams/:id/games/:gameId" component={GamesShow} />
                 <Route path="/teams/:id/games" component={GamesIndex} />
+                <Route path="/teams/:id/practices/:practiceId" component={PracticeShow} />
+                <Route path="/teams/:id/practices" component={PracticeIndex} />
                 <Route path="/teams/new" component={TeamsNew} />
                 <Route path="/teams/:id" component={TeamsShow} />
                 <Route path="/teams" component={TeamsIndex} />

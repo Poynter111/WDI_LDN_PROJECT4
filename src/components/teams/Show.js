@@ -63,9 +63,11 @@ class TeamsShow extends React.Component {
           )}
           {team.practices.map(practice =>
             <div key={practice._id}>
-              <p>{practice.title}</p>
-              <p>{practice.practiceAddress}</p>
-              <p>{practice.startTime}</p>
+              <Link to={`/teams/${team._id}/practices/${practice._id}`}>
+                <p>{practice.title}</p>
+                <p>{practice.practiceAddress}</p>
+                <p>{practice.startTime}</p>
+              </Link>
             </div>
           )}
         </div>
@@ -78,7 +80,8 @@ class TeamsShow extends React.Component {
           <hr />
           <div className="columns">
             <div className="column">
-              <Link to={`/teams/${team._id}/games`}>View all games</Link>
+              <Link className="button" to={`/teams/${team._id}/games`}>View all games</Link>
+              <Link className="button" to={`/teams/${team._id}/practices`}>View all practices</Link>
               <Link
                 to={`/teams/${team._id}/edit`}
                 className="button"
@@ -87,6 +90,11 @@ class TeamsShow extends React.Component {
                 to={`/teams/${team._id}/games/new`}
                 className="button"
               >NEW GAME</Link>
+              <Link
+                to={`/teams/${team._id}/practices/new`}
+                className="button"
+              >NEW Practice
+              </Link>
             </div>
             <div className="column">
               <button
