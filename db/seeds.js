@@ -28,8 +28,50 @@ mongoose.connect(dbURI, (err, db) => {
       kickOff: '14:00',
       playerArrival: '11:30',
       info: 'player are expected to arrive ontime to allow for pre game rituals'
+    }, {
+      homeTeam: 'Darons',
+      awayTeam: 'Exiles',
+      gameDayAddress: 'Sports pitch number 1',
+      location: {
+        lat: 45,
+        lng: 45
+      },
+      kickOff: '14:00',
+      playerArrival: '11:30',
+      info: 'player are expected to arrive ontime to allow for pre game rituals'
+    }, {
+      homeTeam: 'Darons',
+      awayTeam: 'Warriors',
+      gameDayAddress: 'Sports pitch number 1',
+      location: {
+        lat: 45,
+        lng: 45
+      },
+      kickOff: '14:00',
+      playerArrival: '11:30',
+      info: 'player are expected to arrive ontime to allow for pre game rituals'
     }],
     practices: [{
+      title: 'Wednesday practice',
+      practiceAddress: 'Westminster University',
+      location: {
+        lat: 45,
+        lng: 45
+      },
+      startTime: '19:00',
+      playerArrival: '18:45',
+      info: 'We will be doing lids only no need to bring pads'
+    }, {
+      title: 'Wednesday practice',
+      practiceAddress: 'Westminster University',
+      location: {
+        lat: 45,
+        lng: 45
+      },
+      startTime: '19:00',
+      playerArrival: '18:45',
+      info: 'We will be doing lids only no need to bring pads'
+    }, {
       title: 'Wednesday practice',
       practiceAddress: 'Westminster University',
       location: {
