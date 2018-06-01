@@ -50,9 +50,10 @@ class Auth{
   // }
 
 
-  static isCoach(user) {
+  static isCoach(team) {
     // console.log('isCoach Function taking user---->',user);
-    return user.role === 'coach';
+    console.log('AUTH LOG', team.createdBy._id, this.getPayLoad().sub);
+    return team.createdBy._id === this.getPayLoad().sub;
   }
 
   static isCurrentUser(user){

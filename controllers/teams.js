@@ -4,7 +4,7 @@ const Team = require('../models/team');
 function indexTeams(req, res, next){
   Team
     .find()
-    .populate('games.createdBy')
+    .populate('createdBy')
     .exec()
     .then(teams => res.json(teams))
     .catch(next);

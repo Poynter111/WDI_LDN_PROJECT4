@@ -1,38 +1,60 @@
-@import url('https://fonts.googleapis.com/css?family=Catamaran:100|Hind');
+@import url('https://fonts.googleapis.com/css?family=Bangers|Catamaran:100|Hind');
 
 
 body{
   // font-family: 'Hind', sans-serif;
   font-family: 'Catamaran', sans-serif;
   background-color: #eeeeee;
+  height: calc(100vh + 50px);
+  font-weight: bold;
+}
+.homePageTitle{
+  font-family: 'Bangers', cursive;
+  text-align: center;
+  font-size: 60px;
+  color: #007DC3;
 }
 
 .map{
   height: 200px;
-  margin-bottom: 20px;
   &.burger-index{
     height: 75vh;
   }
-  border: 4px solid #003399;
+  border: 1px solid #FF0000;
   width: 100%;
 }
 
 .navbar{
-  background-color: #003399;
-  border-bottom: 3px solid white;
+  background-color: #007DC3;
+  border-bottom: 1px solid #FF0000;
   a{
     color: white;
   }
+  .blueText{
+    a{
+      color: #007DC3;
+    }
+  }
 }
 
-.homePagebtn{
+
+.homePagebtnLeft{
   margin: 15px;
-  background-color: #86C67C;
-  border: 3px solid white;
+  background-color: #007DC3;
+  border: 1px solid #FF0000;
+  color: white;
+  float: left;
+}
+.homePagebtnRight{
+  margin: 15px;
+  background-color: #007DC3;
+  border: 1px solid #FF0000;
+  color: white;
+  float: right;
 }
 
 .homePageLogo{
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Circle-icons-clipboard.svg/2000px-Circle-icons-clipboard.svg.png');
+  background-image: url('http://joaoalves.s2.siteinstantaneo.smartcloudpt.pt/userfiles/Round%20Flat%20Icon%2060.png');
   height: 300px;
   background-position: center;
   background-size: contain;
@@ -44,9 +66,13 @@ body{
   text-align: center;
 }
 .pannel{
-  background-color: #eeeeee;
+  .title{
+    color: white;
+  }
+
+  background-color: #007DC3;
   margin: 0 0 20px 0;
-  border: 4px solid #003399;
+  border: 1px solid #FF0000;
 
 
 }

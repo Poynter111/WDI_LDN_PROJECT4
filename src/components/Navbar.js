@@ -26,7 +26,7 @@ class Navbar extends React.Component {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
-            {/* <img width="55" src="" /> */}
+            <img width="55" src="http://joaoalves.s2.siteinstantaneo.smartcloudpt.pt/userfiles/Round%20Flat%20Icon%2060.png" />
           </Link>
           <a role="button" className={`navbar-burger ${this.state.navIsOpen? 'is-active' : ''}`} onClick={this.handleToggle}>
             <span aria-hidden="true"></span>
@@ -35,7 +35,7 @@ class Navbar extends React.Component {
           </a>
         </div>
 
-        <div className={`navbar-menu ${this.state.navIsOpen ? 'is-active' : ''}`}>
+        <div className={`navbar-menu ${this.state.navIsOpen ? 'is-active blueText' : ''}`}>
           <div className="navbar-end">
             <Link to="/teams" className="navbar-item">All Teams</Link>
             <Link to="/teams/new" className="navbar-item">Create a Team</Link>

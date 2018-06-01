@@ -32,6 +32,7 @@ class TeamsIndex extends React.Component {
   // }
 
   render() {
+
     return (
       <div>
         {/* <SortFilterBar
@@ -51,6 +52,7 @@ class TeamsIndex extends React.Component {
                       <div className="media-content">
                         <p className="title is-4">{team.teamName}</p>
                         <p className="subtitle is-6">{team.info}</p>
+                        <p>Head Coach: {team.createdBy.username}</p>
                         <p>Games Scheduled {team.games.length}</p>
                         <p>Practices Scheduled {team.practices.length}</p>
                       </div>
