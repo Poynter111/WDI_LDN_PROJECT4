@@ -1,3 +1,5 @@
+// import axios from 'axios';
+
 class Auth{
 
   static setToken(token) {
@@ -25,6 +27,32 @@ class Auth{
     if(!payLoad) return false;
     const now = Math.round(Date.now() / 1000);
     return now < payLoad.exp;
+  }
+
+  // static isCoach(){
+  //   const userId = this.getPayLoad().sub;
+  //   console.log(userId);
+  //   axios.get(`/api/users/${userId}`)
+  //     .then(res => {
+  //       console.log('AXIOS RES.DATA.ROLE--->',res.data.role);
+  //       return res.data.role === 'coach';
+  //     });
+  //   return
+  // }
+
+  // static isCoach(){
+  //   // let isCoachOrNot;
+  //   axios.get(`/api/users/${this.getPayLoad().sub}`)
+  //     .then(res => {
+  //       console.log('After just setting the LET--->',res.data.role);
+  //       return res.data.role === 'coach';
+  //     });
+  // }
+
+
+  static isCoach(user) {
+    // console.log('isCoach Function taking user---->',user);
+    return user.role === 'coach';
   }
 
   static isCurrentUser(user){

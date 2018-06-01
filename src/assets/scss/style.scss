@@ -1,7 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:100|Hind');
+
+
+body{
+  // font-family: 'Hind', sans-serif;
+  font-family: 'Catamaran', sans-serif;
+  background-color: #eeeeee;
+}
+
 .map{
   height: 200px;
   margin-bottom: 20px;
   &.burger-index{
     height: 75vh;
   }
+  border: 4px solid #003399;
+  width: 100%;
+}
+
+.navbar{
+  background-color: #003399;
+  border-bottom: 3px solid white;
+  a{
+    color: white;
+  }
+}
+
+.homePagebtn{
+  margin: 15px;
+  background-color: #86C67C;
+  border: 3px solid white;
+}
+
+.homePageLogo{
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Circle-icons-clipboard.svg/2000px-Circle-icons-clipboard.svg.png');
+  height: 300px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.gameShow{
+  // margin: 5px;
+  text-align: center;
+}
+.pannel{
+  background-color: #eeeeee;
+  margin: 0 0 20px 0;
+  border: 4px solid #003399;
+
+
+}
+
+.inline-Block{
+  display: inline-block;
+}
+
+.floatRight{
+  float: right;
+}
+
+.coachPannelBtn{
+  margin: 5px;
+}
+
+.teamLogo{
+  height: 150px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

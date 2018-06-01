@@ -16,10 +16,11 @@ mongoose.connect(dbURI, (err, db) => {
       lng: 45
     },
     info: 'We are a uni team based in london',
-    logo: 'http://americanupbeat.com/wp-content/uploads/2017/02/enhanced-buzz-5804-1447670855-8.jpg',
+    logo: 'https://i.ytimg.com/vi/mcWPqIu9WyQ/maxresdefault.jpg',
     games: [{
       homeTeam: 'Darons',
       awayTeam: 'Spartans',
+      date: '3rd June',
       gameDayAddress: 'Sports pitch number 1',
       location: {
         lat: 45,
@@ -31,6 +32,7 @@ mongoose.connect(dbURI, (err, db) => {
     }, {
       homeTeam: 'Darons',
       awayTeam: 'Exiles',
+      date: '10th June',
       gameDayAddress: 'Sports pitch number 1',
       location: {
         lat: 45,
@@ -42,6 +44,7 @@ mongoose.connect(dbURI, (err, db) => {
     }, {
       homeTeam: 'Darons',
       awayTeam: 'Warriors',
+      date: '17th June',
       gameDayAddress: 'Sports pitch number 1',
       location: {
         lat: 45,

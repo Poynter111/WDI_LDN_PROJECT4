@@ -18,7 +18,7 @@ const PracticeForm = ( {handleChange, handleSubmit, handlePlaceChange, practice,
         {errors.info &&<small>{errors.info}</small>}
       </div>
       <div className="field">
-        <label htmlFor="startTime">Kick Off</label>
+        <label htmlFor="startTime">Start time </label>
         <input id="startTime" name="startTime" className="input" placeholder="Kick Off"  onChange={handleChange} value={practice.startTime || ''}/>
         {errors.startTime &&<small>{errors.startTime}</small>}
       </div>

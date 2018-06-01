@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import SecureRoute from './components/common/SecureRoute';
 import NavBar from './components/NavBar';
 import AuthLogin from './components/auth/Login';
 import AuthRegister from './components/auth/Register';
@@ -15,6 +16,9 @@ import GamesNew from './components/games/New';
 import GamesEdit from './components/games/Edit';
 import PracticeIndex from './components/practices/Index';
 import PracticeShow from './components/practices/Show';
+import PracticeNew from './components/practices/New';
+import PracticeEdit from './components/practices/Edit';
+import Home from './components/Home';
 
 import 'bulma';
 import './assets/scss/style.scss';
@@ -34,11 +38,14 @@ class App extends React.Component {
                 <Route path="/teams/:id/games/:gameId/edit" component={GamesEdit} />
                 <Route path="/teams/:id/games/:gameId" component={GamesShow} />
                 <Route path="/teams/:id/games" component={GamesIndex} />
+                <Route path="/teams/:id/practices/new" component={PracticeNew} />
+                <Route path="/teams/:id/practices/:practiceId/edit" component={PracticeEdit} />
                 <Route path="/teams/:id/practices/:practiceId" component={PracticeShow} />
                 <Route path="/teams/:id/practices" component={PracticeIndex} />
-                <Route path="/teams/new" component={TeamsNew} />
+                <SecureRoute path="/teams/new" component={TeamsNew} />
                 <Route path="/teams/:id" component={TeamsShow} />
                 <Route path="/teams" component={TeamsIndex} />
+                <Route exact path="/" component={Home} />
                 <Route path="/login" component={AuthLogin} />
                 <Route path="/register" component={AuthRegister} />
               </Switch>

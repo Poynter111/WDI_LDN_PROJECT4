@@ -45,15 +45,14 @@ class TeamsIndex extends React.Component {
             <div className="column is-one-third-desktop is-half-tablet" key={team._id}>
               <Link to={`/teams/${team._id}`}>
                 <div className="card">
-                  <div
-                    className="card-image"
-                    style={{ backgroundImage: `url(${team.logo})` }}
-                  ></div>
+                  <div className="teamLogo" style={{ backgroundImage: `url(${team.logo})`}}></div>
                   <div className="card-content">
                     <div className="media">
                       <div className="media-content">
-                        <p className="title is-4">{team.name}</p>
+                        <p className="title is-4">{team.teamName}</p>
                         <p className="subtitle is-6">{team.info}</p>
+                        <p>Games Scheduled {team.games.length}</p>
+                        <p>Practices Scheduled {team.practices.length}</p>
                       </div>
                     </div>
                   </div>

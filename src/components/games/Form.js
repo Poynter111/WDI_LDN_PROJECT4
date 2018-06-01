@@ -23,12 +23,17 @@ const GameForm = ( {handleChange, handleSubmit, handlePlaceChange, game, errors
         {errors.info &&<small>{errors.info}</small>}
       </div>
       <div className="field">
+        <label htmlFor="date">Date</label>
+        <input id="date" name="date" className="input" placeholder="Date"  onChange={handleChange} value={game.date || ''}/>
+        {errors.date &&<small>{errors.date}</small>}
+      </div>
+      <div className="field">
         <label htmlFor="kickOff">Kick Off</label>
         <input id="kickOff" name="kickOff" className="input" placeholder="Kick Off"  onChange={handleChange} value={game.kickOff || ''}/>
         {errors.kickOff &&<small>{errors.kickOff}</small>}
       </div>
       <div className="field">
-        <label htmlFor="playerArrival">Image</label>
+        <label htmlFor="playerArrival">Player Arrival Time</label>
         <input id="playerArrival" name="playerArrival" className="input" placeholder="Player Arrival Time"  onChange={handleChange} value={game.playerArrival || ''}/>
         {errors.playerArrival &&<small>{errors.playerArrival}</small>}
       </div>

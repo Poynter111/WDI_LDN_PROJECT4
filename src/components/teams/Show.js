@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom';
 import Auth from '../../lib/Auth';
 import Map from '../common/Map';
 
-
 class TeamsShow extends React.Component {
-  state = {
-
-  }
+  state = {}
 
   componentDidMount(){
-    console.log(this.props.match.params.id);
+    axios.get(`/api/users/${Auth.getPayLoad().sub}`)
+      .then(res => this.setState({user: res.data}));
     axios.get(`/api/teams/${this.props.match.params.id}`)
       .then(res => this.setState({team: res.data}));
   }
@@ -22,88 +20,81 @@ class TeamsShow extends React.Component {
     })
       .then(() => this.props.history.push('/teams'));
   }
-  //
-  // handleChange = ({target: { name, value} }) => {
-  //   const comment = { ...this.state.comment, [name]: value };
-  //   this.setState({ comment });
-  // }
-  //
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const { id } = this.props.match.params;
-  //   axios.post(`/api/burgers/${id}/comments`, this.state.comment, {
-  //     headers: { Authorization: `Bearer ${Auth.getToken()}`}
-  //   })
-  //     .then(res => this.setState({ burger: res.data, comment: {} }));
-  // }
-  //
-  // handleCommentDelete = (comment) => {
-  //   const { id } = this.props.match.params;
-  //   axios.delete(`/api/burgers/${id}/comments/${comment._id}`, {
-  //     headers: { Authorization: `Bearer ${Auth.getToken()}`}
-  //   })
-  //     .then(res => this.setState({ burger: res.data }));
-  // }
 
   render(){
-    const { team } = this.state;
-    if(!team) return null;
+    const { team, user } = this.state;
+    if(!team || !user) return null;
+    console.log(team);
     return(
-
       <div className="columns">
         <div className="column">
-          {team.games.map(game =>
-            <div key={game._id}>
-              <Link to={`/teams/${team._id}/games/${game._id}`}>
-                <p>{game.homeTeam}</p>
-                <p>{game.awayTeam}</p>
-                <p>{game.kickOff}</p>
-              </Link>
+          <div className="columns is-multiline pannel">
+            <div className="column is-12">
+              <h2 className="title inline-Block">Games Schedule</h2>
+              <Link className="button floatRight" to={`/teams/${team._id}/games`}>View all games</Link>
             </div>
-          )}
-          {team.practices.map(practice =>
-            <div key={practice._id}>
-              <Link to={`/teams/${team._id}/practices/${practice._id}`}>
-                <p>{practice.title}</p>
-                <p>{practice.practiceAddress}</p>
-                <p>{practice.startTime}</p>
-              </Link>
+            {team.games.map(game =>
+              <div className="column is-one-third" key={game._id}>
+                <Link to={`/teams/${team._id}/games/${game._id}`}>
+                  <div className="card gameShow">
+                    <p>{game.awayTeam} @ {game.homeTeam}</p>
+                    <p>{game.date} @ {game.kickOff}</p>
+                  </div>
+                </Link>
+              </div>
+            )}
+          </div>
+          <div className="columns is-multiline pannel">
+            <div className="column is-12">
+              <h2 className="title inline-Block">Practice Schedule</h2>
+              <Link className="button floatRight" to={`/teams/${team._id}/practices`}>View all practices</Link>
+
             </div>
-          )}
+            {team.practices.map(practice =>
+              <div className="column is-one-third" key={practice._id}>
+                <div className="card gameShow">
+                  <Link to={`/teams/${team._id}/practices/${practice._id}`}>
+                    <p>{practice.title}</p>
+                    <p>{practice.practiceAddress}</p>
+                    <p>{practice.startTime}</p>
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
         <div className="column">
-          <div className="hero-iamge" style={{ backgroundImage: `url(${team.logo})`}} />
+          <div className="hero-iamge is-12 teamLogo" style={{ backgroundImage: `url(${team.logo})`}} />
           <div className="title">{team.teamName}</div>
-          <p>{team.homeGroundAddress}</p>
+          <p>Our home ground address: {team.homeGroundAddress}</p>
+          <p>Head Coach: {team.createdBy.username}</p>
           <p>{team.info}</p>
           <Map center={team.location} />
           <hr />
           <div className="columns">
-            <div className="column">
-              <Link className="button" to={`/teams/${team._id}/games`}>View all games</Link>
-              <Link className="button" to={`/teams/${team._id}/practices`}>View all practices</Link>
-              <Link
-                to={`/teams/${team._id}/edit`}
-                className="button"
-              >Edit</Link>
+            {Auth.isCoach(user) && <div className="column pannel">
+              <h1 className="title">Coach's Panel</h1>
+              <h1></h1>
               <Link
                 to={`/teams/${team._id}/games/new`}
-                className="button"
-              >NEW GAME</Link>
+                className="button coachPannelBtn"
+              >Add a GAME</Link>
               <Link
                 to={`/teams/${team._id}/practices/new`}
-                className="button"
-              >NEW Practice
+                className="button coachPannelBtn"
+              >Add a Practice
               </Link>
-            </div>
-            <div className="column">
+              <Link
+                to={`/teams/${team._id}/edit`}
+                className="button coachPannelBtn is-success"
+              >Edit Team</Link>
               <button
                 onClick={this.handleDelete}
-                className="button is-danger"
-              >Delete</button>
-            </div>
+                className="button is-danger coachPannelBtn"
+              ><span>Delete Team</span>
+              </button>
+            </div>}
           </div>
-
         </div>
       </div>
 

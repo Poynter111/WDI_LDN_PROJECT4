@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const gameDaySchema = new mongoose.Schema({
   homeTeam: { type: String },
   awayTeam: { type: String },
+  date: {type: String },
   gameDayAddress: { type: String },
   location: {
     lat: { type: Number },
@@ -11,8 +12,8 @@ const gameDaySchema = new mongoose.Schema({
   },
   kickOff: { type: String },
   playerArrival: { type: String },
-  info: { type: String }
-  // createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
+  info: { type: String },
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 });
 
 //Model for Practice resource---------------------------------------------------
@@ -25,8 +26,8 @@ const practiceSchema = new mongoose.Schema({
   },
   startTime: { type: String },
   playerArrival: { type: String },
-  info: { type: String }
-  // createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
+  info: { type: String },
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 });
 
 //Model for Teams resource------------------------------------------------------
@@ -40,8 +41,8 @@ const teamSchema = new mongoose.Schema({
   info: { type: String },
   logo: { type: String },
   games: [ gameDaySchema ],
-  practices: [ practiceSchema ]
-  // coach: { type: mongoose.Schema.ObjectId, ref: 'User' }
+  practices: [ practiceSchema ],
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 });
 
 

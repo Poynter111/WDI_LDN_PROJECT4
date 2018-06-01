@@ -23,28 +23,6 @@ class GamesShow extends React.Component {
     })
       .then(() => this.props.history.push('/teams'));
   }
-  //
-  // handleChange = ({target: { name, value} }) => {
-  //   const comment = { ...this.state.comment, [name]: value };
-  //   this.setState({ comment });
-  // }
-  //
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const { id } = this.props.match.params;
-  //   axios.post(`/api/burgers/${id}/comments`, this.state.comment, {
-  //     headers: { Authorization: `Bearer ${Auth.getToken()}`}
-  //   })
-  //     .then(res => this.setState({ burger: res.data, comment: {} }));
-  // }
-  //
-  // handleCommentDelete = (comment) => {
-  //   const { id } = this.props.match.params;
-  //   axios.delete(`/api/burgers/${id}/comments/${comment._id}`, {
-  //     headers: { Authorization: `Bearer ${Auth.getToken()}`}
-  //   })
-  //     .then(res => this.setState({ burger: res.data }));
-  // }
 
   render(){
     const { game } = this.state;

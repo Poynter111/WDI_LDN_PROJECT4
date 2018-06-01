@@ -4,6 +4,7 @@ const Team = require('../models/team');
 function indexTeams(req, res, next){
   Team
     .find()
+    .populate('games.createdBy')
     .exec()
     .then(teams => res.json(teams))
     .catch(next);
@@ -11,6 +12,7 @@ function indexTeams(req, res, next){
 
 //------------------------------------------------------------------CREATE TEAMS
 function createTeams(req, res, next){
+  req.body.createdBy = req.currentUser;
   Team
     .create(req.body)
     .then((team) => {
@@ -19,10 +21,11 @@ function createTeams(req, res, next){
     .catch(next);
 }
 
-//------------------------------------------------------------------SHOW BURGERS
+//------------------------------------------------------------------SHOW Teams
 function showTeam(req, res, next){
   Team
     .findById(req.params.id)
+    .populate('createdBy')
     .exec()
     .then(team => {
       if(!team) return res.sendStatus(404);
@@ -31,7 +34,7 @@ function showTeam(req, res, next){
     .catch(next);
 }
 
-//----------------------------------------------------------------UPDATE BURGERS
+//----------------------------------------------------------------UPDATE Teams
 function updateTeam(req, res, next){
   Team
     .findById(req.params.id)
@@ -45,7 +48,7 @@ function updateTeam(req, res, next){
     .catch(next);
 }
 
-//----------------------------------------------------------------DELETE BURGERS
+//----------------------------------------------------------------DELETE Teams
 function deleteTeam(req, res, next){
   Team
     .findById(req.params.id)
